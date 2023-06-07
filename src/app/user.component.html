@@ -1,0 +1,5 @@
+<h1>Hola, prueba de componente {{ username }}</h1>
+<input *ngIf="show" type="text" [(ngModel)]="username">
+<button *ngIf="show" (click)="onAddUser()">Agregar</button>
+<div *ngFor="let user of users">{{user}}</div>
+

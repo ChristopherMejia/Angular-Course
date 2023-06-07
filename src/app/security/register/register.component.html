@@ -1,0 +1,91 @@
+<section>
+  <form
+    fxLayout="column"
+    fxLayoutAlign="center center"
+    (ngSubmit)="registerUser(f)"
+    #f="ngForm"
+    fxLayoutGap="1rem"
+  >
+    <mat-form-field>
+      <mat-label>Add Username</mat-label>
+      <input
+        type="text"
+        matInput
+        ngModel
+        name="username"
+        required
+        placeholder="Add Username"
+      />
+      <mat-error>Must add username</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Add Name</mat-label>
+      <input
+        type="text"
+        matInput
+        ngModel
+        name="name"
+        required
+        placeholder="Add Name"
+      />
+      <mat-error>Must add Name</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Add Lastname</mat-label>
+      <input
+        type="text"
+        matInput
+        ngModel
+        name="lastname"
+        required
+        placeholder="Add Lastname"
+      />
+      <mat-error>Must add lastname</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>E-mail</mat-label>
+      <input
+        type="email"
+        matInput
+        placeholder="example@dominio.com"
+        ngModel
+        name="email"
+        email
+        required
+        #emailInput="ngModel"
+      />
+      <mat-error *ngIf="emailInput.hasError('required')">
+        The email is empty</mat-error
+      >
+      <mat-error *ngIf="!emailInput.hasError('required')">
+        The email is invalid</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field hintLabel="The password must be 7 characters">
+      <mat-label>Password</mat-label>
+      <input
+        type="password"
+        matInput
+        placeholder="password"
+        ngModel
+        name="password"
+        required
+        minlength="7"
+      />
+      <mat-error>The password must be more that 7 characters</mat-error>
+    </mat-form-field>
+
+    <button
+      type="submit"
+      mat-raised-button
+      color="primary"
+      [disabled]="f.invalid"
+    >
+      Save
+    </button>
+  </form>
+</section>
